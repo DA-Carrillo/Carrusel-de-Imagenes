@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="David Carrillo">
+	<title>Carrusel de Imágenes</title>	
+</head>
+<body style="background: #E1E1E1;">
+	<br><br><br><br><br><br><br>
+	<h2 align="center" style="font-family: Century;">Carrusel de Imágenes</h2>
+	<table align="center" style="background: #000000; border-radius: 50px;">
+		<tr>
+			<td width="100">
+				<center><a href="javascript:cambio(-1)"><img src="images/prev.png"></a></center>
+			</td>
+
+			<td width="500" height="400">
+				<center><img id="centro" src="images/1.jpg" width="85%"></center>
+			</td>
+
+			<td width="100">
+				<center><a href="javascript:cambio(1)"><img src="images/next.png"></a></center>
+			</td>
+		</tr>
+	</table>
+
+</body>
+<script type="text/javascript">
+	var lista = new Array('1.jpg', '2.jpg', '3.jpg' , '4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg','11.jpg','12.jpg','13.jpg','14.jpg','15.jpg');
+
+	var contador = 0;
+
+	function cambio(a)	{
+
+		var tamaño = lista.length;
+		contador+= a;
+		if(contador<0){
+			contador=(lista.length-1);
+			document.images.centro.src = "images/"+lista[contador];
+		}
+		if(contador>=lista.length){
+			contador=0;
+			document.images.centro.src = "images/"+lista[contador];
+		}
+		document.images.centro.src = "images/"+lista[contador];
+	}
+</script>
+</html>
